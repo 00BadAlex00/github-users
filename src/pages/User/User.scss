@@ -1,0 +1,105 @@
+@import '../../variables.scss';
+
+.user {
+  .btn-back {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: #000;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  input {
+    margin: 0 auto 10px;
+    display: block;
+  }
+
+  &__ava {
+    width: 200px;
+    margin-right: 25px;
+    box-shadow: 0 0 10px 3px #00000024;
+  }
+
+  &__bio {
+    text-align: center;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  &__info {
+    width: calc(100% - 225px);
+    text-align: left;
+    font-size: 18px;
+
+    th {
+      font-weight: 400;
+      padding: 5px 1px;
+
+      &:first-child {
+        font-style: italic;
+      }
+    }
+
+    &-wrap {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.repo-item {
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  font-size: 18px;
+
+  a {
+    color: $text-color-primary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20px;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  div {
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+
+  &:nth-child(odd) {
+    background-color: $background-color-secondary;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid $border-color-primary;
+  }
+
+  &:hover {
+    &:nth-child(even) {
+      background-color: darken($background-color-primary, 4%);
+    }
+
+    &:nth-child(odd) {
+      background-color: darken($background-color-secondary, 6%);
+    }
+  }
+}

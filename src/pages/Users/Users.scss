@@ -1,0 +1,73 @@
+@import "../../variables.scss";
+
+.users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .infinite-scroll-component__outerdiv {
+    width: 100%;
+
+    .infinite-scroll-component {
+      overflow: unset !important;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+
+    .user-item {
+      padding: 10px;
+      border-top: 1px solid $border-color-primary;
+
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: $text-color-primary;
+
+        &:hover .user-item__ava {
+          transform: scale(1.1);
+        }
+      }
+
+      &__ava {
+        width: 100px;
+        height: 100px;
+        min-width: unset;
+        transition: all 0.5s;
+        margin-right: 20px;
+        box-sizing: border-box;
+      }
+
+      &__name {
+        color: $text-color-primary;
+        font-size: 18px;
+      }
+
+      &__repos {
+        margin-left: auto;
+      }
+
+      &:nth-child(odd) {
+        background-color: $background-color-secondary;
+      }
+
+      &:last-child {
+        border-bottom: 1px solid $border-color-primary;
+      }
+
+      &:hover {
+        &:nth-child(even) {
+          background-color: darken($background-color-primary, 6%);
+        }
+
+        &:nth-child(odd) {
+          background-color: darken($background-color-secondary, 6%);
+        }
+      }
+    }
+  }
+}

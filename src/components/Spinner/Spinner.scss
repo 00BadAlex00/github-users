@@ -1,0 +1,21 @@
+.spinner {
+  display: block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid black;
+  border-right-color: transparent !important;
+  border-radius: 50%;
+  animation: spinner .75s linear infinite;
+  border-color: #727cf5;
+  margin: 25px auto;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -48,7 +48,7 @@ export const Users = () => {
 			<ul className="users__list">
 				{users.map(user => <UserItem key={user.id} user={user} />)}
 				{pending && <Spinner />}
-				{!pending && !!search && !totalCount && <p className='empty'>Empty</p>}
+				{!pending && !!search && !totalCount && !loadingError && <p className='empty'>Empty</p>}
 			</ul>
 		</InfiniteScroll>
 

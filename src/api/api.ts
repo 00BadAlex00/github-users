@@ -1,6 +1,6 @@
 import axios, { Canceler } from "axios";
 import { REPOS_COUNT_PER_PAGE, USERS_LIMIT_PER_PAGE } from "../constants";
-import { IUserFullInfo, IUsersDataResponse } from "../redux/reducers/users.types";
+import { IRepo, IUserFullInfo, IUsersDataResponse, IReposResponse } from "../redux/reducers/users.types";
 
 let CancelToken = axios.CancelToken;
 
@@ -29,7 +29,7 @@ const getUser = (username: string): Promise<IUserFullInfo> => {
   })
 }
 
-const getUserRepos = (username: string, page: number = 1, limit = REPOS_COUNT_PER_PAGE): Promise<any> => (
+const getUserRepos = (username: string, page: number = 1, limit = REPOS_COUNT_PER_PAGE): Promise<IRepo[]> => (
   axios.get(`users/${username}/repos`, {
     params: {
       per_page: limit,
@@ -39,7 +39,7 @@ const getUserRepos = (username: string, page: number = 1, limit = REPOS_COUNT_PE
 );
 
 let cancelSearchUserRepos: Canceler
-const getSearchUserRepos = (username: string, query: string = '', page: number = 1): Promise<any> => {
+const getSearchUserRepos = (username: string, query: string = '', page: number = 1): Promise<IReposResponse> => {
   if (cancelSearchUserRepos) cancelSearchUserRepos();
   return axios.get(`search/repositories?page=${page}&q=${query + encodeURIComponent(`user:${username}`)}`, {
     cancelToken: new CancelToken(function executor(c) {

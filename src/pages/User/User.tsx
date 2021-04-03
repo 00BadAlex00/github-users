@@ -25,7 +25,10 @@ export const User = () => {
 	const [reposError, setReposError] = useState<string | undefined>();
 
 	const currentUser = user ? user : loadedUser;
-	const setCurrentUser: any = user ? (updatedUser: IUserFullInfo) => { dispatch(updateUser(updatedUser)) } : setLoadedUser;
+	const setCurrentUser: (user: IUserFullInfo) => void | React.Dispatch<React.SetStateAction<IUserFullInfo>> =
+		user
+			? (updatedUser: IUserFullInfo) => { dispatch(updateUser(updatedUser)) }
+			: setLoadedUser;
 
 	const isNextPage = !errorGettingUser && !reposError && (!!currentUser?.searchRepos
 		? currentUser.repos?.length !== currentUser.totalReposCount
@@ -126,7 +129,7 @@ export const User = () => {
 					</tr>
 					<tr>
 						<th>Join date:</th>
-						<th>{convertDateToString(currentUser.created_at)}</th>
+						<th>{currentUser.created_at ? convertDateToString(currentUser.created_at) : '-'}</th>
 					</tr>
 					<tr>
 						<th>Followers:</th>

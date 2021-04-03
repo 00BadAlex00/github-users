@@ -36,40 +36,34 @@ export interface IUserInfo {
 }
 
 export interface IUserFullInfo {
-	avatar_url: string,
-	bio: string | null,
-	blog: string,
-	company: string | null,
-	created_at: string,
-	email: string | null,
-	events_url: string,
-	followers: number,
-	followers_url: string,
-	following: number,
-	following_url: string,
-	gists_url: string,
-	gravatar_id: string,
-	hireable: string | null,
-	html_url: string,
-	id: number,
-	location: string | null,
-	login: string,
-	name: string,
-	node_id: string,
-	organizations_url: string,
-	public_gists: number,
-	public_repos: number,
-	received_events_url: string,
-	repos_url: string,
-	site_admin: boolean,
-	starred_url: string,
-	subscriptions_url: string,
-	twitter_username: string | null
-	type: string,
-	updated_at: string,
-	url: string,
-	repos?: any[],
+	avatar_url?: string,
+	bio?: string | null,
+	created_at?: string,
+	email?: string | null,
+	followers?: number,
+	following?: number,
+	html_url?: string,
+	id?: number,
+	location?: string | null,
+	login?: string,
+	name?: string,
+	public_repos?: number,
+	url?: string,
+	repos?: IRepo[],
 	searchRepos?: string,
 	reposPage?: number,
 	totalReposCount?: number | null,
+}
+
+export interface IRepo {
+	id: number,
+	html_url: string
+	name: string
+	forks_count: number
+	stargazers_count: number
+}
+
+export interface IReposResponse {
+	items: IRepo[],
+	total_count: number,
 }

@@ -1,10 +1,7 @@
+import { IRepo } from "../../../redux/reducers/users.types";
+
 interface IRepoItemProps {
-	repo: {
-		html_url: string
-		name: string
-		forks_count: number
-		stargazers_count: number
-	}
+	repo: IRepo
 }
 
 export const RepoItem = ({ repo }: IRepoItemProps) => (

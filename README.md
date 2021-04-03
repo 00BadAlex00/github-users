@@ -1,3 +1,6 @@
+You can see this project at the link: https://github-users-osypets99.vercel.app/ \
+Before starting, create a new file '.env' and add a variable with the github token: `REACT_APP_GITHUB_API_TOKEN=your_token`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
